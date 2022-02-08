@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container mb-5 text12">
+      <h3 class="my-5 font-weight-bold">Student Application Form</h3>
+      <div class="row">
+        <div class="col-md-10">
+          <div class=" d-flex justify-content-center">
+            <div class="col text-center tab-line-done" id="back_to_admission">
+              <img src="https://eas.test.pccr.edu.ph/files/Completed.png" class="icon-tab">
+              <p class="tab_label">Admission</p>
+            </div>
+            <div class="col text-center tab-line">
+              <img src="https://eas.test.pccr.edu.ph/files/Completed.png" class="icon-tab">
+              <p class="tab_label">Personal Information</p>
+            </div>
+            <div class="col text-center tab-line-active">
+              <img src="https://eas.test.pccr.edu.ph/files/Active%20-%20Application.png" class="icon-tab">
+              <p class="tab_label">Educational Background</p>
+            </div>
+            <div class="col text-center tab-line">
+              <img src="https://eas.test.pccr.edu.ph/files/Inactive%20-%20Confirmation.png" class="icon-tab">
+              <p class="tab_label">Confirmation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- header -->
+      <div class="header">
+        <h5 class="headerLabel font-weight-bold my-4">Educational Background</h5>
+      </div>
+
+      <!-- pre-school -->
+      <div class="junior_high_school"> 
+        <form>
+          <div class="preSchool text12 form-group">
+            <h6 class="inputGroup"> <b>Pre School</b> </h6>
+            <div class="custom-table my-4">
+              <table class="">
+                <thead class="">
+                <tr class="tr-custom">
+                  <th class="table-school">School</th>
+                  <th>Year Started</th>
+                  <th>Year Ended</th>
+                  <th>Province</th>
+                  <th>City</th>
+                </tr>
+                </thead>
+                <tbody class="hs_table_body_1">
+                  
+                </tbody>
+              </table>
+            
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <label class="inputLabel" for="HsSchoolName">School Name</label>
+                <input class="hs_get_value longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="HsSchoolName" name="psSchoolName" placeholder="Enter School Name" > </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="HsYearStart">Year Started</label>
+                <input id="HsYearStart" max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date"  name="psYearStart" placeholder="Date"> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="HsYearEnd">Year End</label>
+                <input id="HsYearEnd" max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" name="psYearEnd" placeholder="date"> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="HsProvince">Province</label>
+                <select id="HsProvince" class="text-gray col-12 border bg-white border-dark c-p-5" name="psProvince"  >
+                  <option selected disabled value="">Select province</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="HsCity">City</label>
+                <select id="HsCity" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="psCity" >
+                  <option selected disabled value="">Select City</option>
+                </select>
+              </div>
+              
+            </div>
+            <div class="py-2 add_school" style="width:25px;">
+                <div id="hs_add_button" class="cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+            </div>
+          </div>
+        </form>
+
+        <form>
+          <div class="preSchool text12 form-group">
+            <h6 class="inputGroup my-4"> <b>Grade School</b> </h6>
+            <div class="custom-table my-4">
+              <table class="">
+                <thead class="">
+                <tr class="tr-custom">
+                  <th class="table-school">School</th>
+                  <th>Year Started</th>
+                  <th>Year Ended</th>
+                  <th>Grade Started</th>
+                  <th>Grade Ended</th>
+                  <th>Province</th>
+                  <th>City</th>
+                </tr>
+                </thead>
+                <tbody class="hs_table_body_2">
+                  
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <label class="inputLabel" for="GsSchoolName">School Name<span class="text-red"> *</span></label>
+                <input class="gs_get_value longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="GsSchoolName" name="GsSchoolName" placeholder="Enter School Name"> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="GsYearStart">Year Started<span class="text-red"> *</span></label>
+                <input id="GsYearStart" max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date"  name="GsYearStart" placeholder="Date"> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="GsYearEnd">Year End<span class="text-red"> *</span></label>
+                <input id="GsYearEnd" max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" name="GsYearEnd" placeholder="date"> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="GsStarted">Grade Started<span class="text-red"> *</span></label>
+                <select id="GsStarted" class="text-gray col-12 border bg-white border-dark c-p-5" name="GsProvince"  >
+                  <option value="select">Select Grade Started</option>
+                  <option value="Grade 1">Grade 1</option>
+                  <option value="Grade 2">Grade 2</option>
+                  <option value="Grade 3">Grade 3</option>
+                  <option value="Grade 4">Grade 4</option>
+                  <option value="Grade 5">Grade 5</option>
+                  <option value="Grade 6">Grade 6</option>
+                </select>
+              </div>
+              <div class="col">
+                <label class="inputLabel" for="GsEnded">Grade Ended<span class="text-red"> *</span></label>
+                <select id="GsEnded" class="text-gray col-12 border bg-white border-dark c-p-5" name="GsProvince"  >
+                  <option value="select">Select Grade Ended</option>
+                  <option value="Grade 1">Grade 1</option>
+                  <option value="Grade 2">Grade 2</option>
+                  <option value="Grade 3">Grade 3</option>
+                  <option value="Grade 4">Grade 4</option>
+                  <option value="Grade 5">Grade 5</option>
+                  <option value="Grade 6">Grade 6</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="GsProvince">Province<span class="text-red"> *</span></label>
+                <select id="GsProvince" class="text-gray col-12 border bg-white border-dark c-p-5" name="GsProvince"  >
+                  <option selected disabled value="">Select province</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="GsCity">City<span class="text-red"> *</span></label>
+                <select id="GsCity" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="GsCity" >
+                  <option selected disabled value="">Select City</option>
+                </select>
+              </div>
+            </div>
+            <div class="py-2 add_school">
+              <div id="gs_add_button" class="cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+      <!-- End of grade school -->
+
+      <!-- Start of Senior High School --------------------------------------------->
+      <div class="senior_highschool">
+        <form>
+          <div class="preSchool text12 form-group">
+            <h6 class="inputGroup my-4"> <b>Pre-School</b> </h6>
+            <div class="custom-table my-4">
+              <table>
+                <tr class="tr-custom">
+                  <th class="table-school">School</th>
+                  <th>Year Started</th>
+                  <th>Year Ended</th>
+                  <th>Province</th>
+                  <th>City</th>
+                </tr>
+                <tbody class="shs_ps_table">
+                  
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <label class="inputLabel" for="shs_ps_school_name">School Name<span class="text-red"> *</span></label>
+                <input class="shs_ps_school_name longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="shs_ps_school_name" name="shs_ps_school_name" placeholder="Enter School Name"> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="shs_ps_year_start">Year Started<span class="text-red"> *</span></label>
+                <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="shs_ps_year_start" name="shs_ps_year_start" placeholder="Date"> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="shs_ps_year_end">Year End<span class="text-red"> *</span></label>
+                <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="shs_ps_year_end" name="shs_ps_year_end" placeholder="date""> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="shs_ps_province">Province<span class="text-red"> *</span></label>
+                <select class="text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_province" id="shs_ps_province" >
+                  <option selected disabled value="">Select province</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="shs_ps_city">City<span class="text-red"> *</span></label>
+                <select class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city" id="shs_ps_city" >
+                  <option selected disabled value="">Select City</option>
+                </select>
+              </div>
+            </div>
+            <div class="py-2 add_school">
+              <div id="shs_ps_add_button" class=" cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+            </div>
+          </div>
+        </form>
+        <form>
+          <div class="preSchool text12 form-group">
+            <h6 class="inputGroup"> <b>Grade School</b> </h6>
+            <div class="custom-table my-4">
+              <table>
+                <tr class="tr-custom">
+                  <th class="table-school">School</th>
+                  <th>Year Started</th>
+                  <th>Year Ended</th>
+                  <th>Grade Started</th>
+                  <th>Grade Ended</th>
+                  <th>Province</th>
+                  <th>City</th>
+                </tr>
+                <tbody class="shs_gs_table">
+                  
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <label class="inputLabel" for="shs_gs_school_name">School Name<span class="text-red"> *</span></label>
+                <input class="shs_gs_school_name longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="shs_gs_school_name" name="shs_gs_school_name" placeholder="Enter School Name"> </input>
+              </div>
+      
+              <div class="col">
+                <label class="inputLabel" for="shs_gs_year_start">Year Started<span class="text-red"> *</span></label>
+                <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="shs_gs_year_start" name="shs_gs_year_start" placeholder="Date"> </input>
+              </div>
+      
+              <div class="col">
+                <label class="inputLabel" for="shs_gs_year_end">Year End<span class="text-red"> *</span></label>
+                <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="shs_gs_year_end" name="shs_gs_year_end" placeholder="date""> </input>
+              </div>
+              
+              <div class="col">
+                <label class="inputLabel" for="shs_gs_gradeStarted">Grade Started<span class="text-red"> *</span></label>
+                <select id="shs_gs_gradeStarted" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                  <option value="select">Select Grade Started</option>
+                  <option value="Grade 1">Grade 1</option>
+                  <option value="Grade 2">Grade 2</option>
+                  <option value="Grade 3">Grade 3</option>
+                  <option value="Grade 4">Grade 4</option>
+                  <option value="Grade 5">Grade 5</option>
+                  <option value="Grade 6">Grade 6</option>
+                </select>
+              </div>
+
+              <div class="col"> 
+                <label class="inputLabel" for="shs_gs_gradeS">Grade Ended<span class="text-red"> *</span></label>
+                <select id="shs_gs_gradeEnded" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                  <option value="select">Select Grade Ended</option>
+                  <option value="Grade 1">Grade 1</option>
+                  <option value="Grade 2">Grade 2</option>
+                  <option value="Grade 3">Grade 3</option>
+                  <option value="Grade 4">Grade 4</option>
+                  <option value="Grade 5">Grade 5</option>
+                  <option value="Grade 6">Grade 6</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="shs_gs_province">Province<span class="text-red"> *</span></label>
+                <select class="text-gray col-12 border bg-white border-dark c-p-5" name="shs_gs_province" id="shs_gs_province" >
+                  <option selected disabled value="">Select province</option>
+                </select>
+              </div>
+      
+              <div class="col">
+                <label class="inputLabel" for="shs_gs_city">City<span class="text-red"> *</span></label>
+                <select class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_gs_city" id="shs_gs_city" >
+                  <option selected disabled value="">Select City</option>
+                </select>
+              </div>
+            </div>
+            <div class="py-2 add_school">
+              <div id="shs_gs_add_button" class=" cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+            </div>
+          </div>
+        </form>
+        <form>
+          <div class="preSchool text12 form-group">
+            <h6 class="inputGroup my-4"> <b>Junior High School</b> </h6>
+            <div class="custom-table my-4">
+              <table>
+                <tr class="tr-custom">
+                  <th class="table-school">School</th>
+                  <th>Year Started</th>
+                  <th>Year Ended</th>
+                  <th>Grade Started</th>
+                  <th>Grade Ended</th>
+                  <th>Province</th>
+                  <th>City</th>
+                </tr>
+                <tbody class="shs_jhs_table">
+                  
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <label class="inputLabel" for="shs_jhs_school_name">School Name<span class="text-red"> *</span></label>
+                <input class="shs_jhs_school_name longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="shs_jhs_school_name" name="shs_jhs_school_name" placeholder="Enter School Name"> </input>
+              </div>
+      
+              <div class="col">
+                <label class="inputLabel" for="shs_jhs_year_start">Year Started<span class="text-red"> *</span></label>
+                <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="shs_jhs_year_start" name="shs_jhs_year_start" placeholder="Date"> </input>
+              </div>
+      
+              <div class="col">
+                <label class="inputLabel" for="shs_jhs_year_end">Year End<span class="text-red"> *</span></label>
+                <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="shs_jhs_year_end" name="shs_jhs_year_end" placeholder="date""> </input>
+              </div>
+              
+              <div class="col">
+                <label class="inputLabel" for="shs_jhs_gradeStarted">Grade Started<span class="text-red"> *</span></label>
+                <select id="shs_jhs_gradeStarted" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                  <option value="select">Select Grade Started</option>
+                  <option value="Grade 7">Grade 7</option>
+                  <option value="Grade 8">Grade 8</option>
+                                <option value="Grade 9">Grade 9</option>
+                  <option value="Grade 10">Grade 10</option>
+                </select>
+              </div>
+
+              <div class="col"> 
+                <label class="inputLabel" for="shs_jhs_gradeEnded">Grade Ended<span class="text-red"> *</span></label>
+                <select id="shs_jhs_gradeEnded" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                  <option value="select">Select Grade Ended</option>
+                  <option value="Grade 7">Grade 7</option>
+                  <option value="Grade 8">Grade 8</option>
+                                <option value="Grade 9">Grade 9</option>
+                  <option value="Grade 10">Grade 10</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="shs_jhs_province">Province<span class="text-red"> *</span></label>
+                <select class="text-gray col-12 border bg-white border-dark c-p-5" name="shs_jhs_province" id="shs_jhs_province" >
+                  <option selected disabled value="">Select province</option>
+                </select>
+              </div>
+      
+              <div class="col">
+                <label class="inputLabel" for="shs_jhs_city">City<span class="text-red"> *</span></label>
+                <select class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_jhs_city" id="shs_jhs_city" >
+                  <option selected disabled value="">Select City</option>
+                </select>
+              </div>
+            </div>
+            <div class="py-2 add_school">
+              <div id="shs_jhs_add_button" class=" cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+            </div>
+          </div>
+        </form>
+      </div>
+     
+      <!-- End of senior High School --------------------------------------------------->
+     <!--  College pre-school --------------------------------------------------------->
+     <div class="college">  
+         <div class="preSchool text12 form-group">
+            <h6 class="inputGroup"> <b>Pre School</b> </h6>
+            <div class="custom-table my-4">
+              <table class="">
+                <thead class="">
+                <tr class="tr-custom">
+                  <th class="table-school">School</th>
+                  <th>Year Started</th>
+                  <th>Year Ended</th>
+                  <th>Province</th>
+                  <th>City</th>
+                </tr>
+                </thead>
+                <tbody class="hs_table_body_1">
+                  
+                </tbody>
+              </table>
+            
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <label class="inputLabel" for="HsSchoolName">School Name</label>
+                <input class="hs_get_value longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="HsSchoolName" name="psSchoolName" placeholder="Enter School Name" > </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="HsYearStart">Year Started</label>
+                <input id="HsYearStart" max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date"  name="psYearStart" placeholder="Date"> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="HsYearEnd">Year End</label>
+                <input id="HsYearEnd" max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" name="psYearEnd" placeholder="date"> </input>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="HsProvince">Province</label>
+                <select id="HsProvince" class="text-gray col-12 border bg-white border-dark c-p-5" name="psProvince"  >
+                  <option selected disabled value="">Select province</option>
+                </select>
+              </div>
+
+              <div class="col">
+                <label class="inputLabel" for="HsCity">City</label>
+                <select id="HsCity" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="psCity" >
+                  <option selected disabled value="">Select City</option>
+                </select>
+              </div>
+              
+            </div>
+            <div class="py-2 add_school" style="width:25px;">
+                <div id="hs_add_button" class="cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+            </div>
+          </div>
+        </form>
+        <form>
+        <div class="preSchool text12 form-group">
+          <h6 class="inputGroup my-4"> <b>Grade School</b> </h6>
+          <div class="custom-table my-4">
+            <table>
+              <tr class="tr-custom">
+                <th class="table-school">School</th>
+                <th>Year Started</th>
+                <th>Year Ended</th>
+                <th>Grade Started</th>
+                <th>Grade Ended</th>
+                <th>Province</th>
+                <th>City</th>
+              </tr>
+              <tbody class="college_gs_table">
+                
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label class="inputLabel" for="college_gs_school_name">School Name<span class="text-red"> *</span></label>
+              <input class="college_gs_school_name longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="college_gs_school_name" name="college_gs_school_name" placeholder="Enter School Name"> </input>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="college_gs_year_start">Year Started<span class="text-red"> *</span></label>
+              <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="college_gs_year_start" name="college_gs_year_start" placeholder="Date"> </input>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="college_gs_year_end">Year End<span class="text-red"> *</span></label>
+              <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="college_gs_year_end" name="college_gs_year_end" placeholder="date""> </input>
+            </div>
+            
+            <div class="col">
+              <label class="inputLabel" for="college_gs_started">Grade Started<span class="text-red"> *</span></label>
+              <select id="college_gs_started" class="text-gray col-12 border bg-white border-dark c-p-5" name="GsProvince"  >
+                <option value="select">Select Grade Started</option>
+                <option value="Grade 1">Grade 1</option>
+                <option value="Grade 2">Grade 2</option>
+                <option value="Grade 3">Grade 3</option>
+                <option value="Grade 4">Grade 4</option>
+                <option value="Grade 5">Grade 5</option>
+                <option value="Grade 6">Grade 6</option>
+              </select>
+            </div>
+            <div class="col">
+              <label class="inputLabel" for="college_gs_ended">Grade Ended<span class="text-red"> *</span></label>
+              <select id="college_gs_ended" class="text-gray col-12 border bg-white border-dark c-p-5" name="GsProvince"  >
+                <option value="select">Select Grade Ended</option>
+                <option value="Grade 1">Grade 1</option>
+                <option value="Grade 2">Grade 2</option>
+                <option value="Grade 3">Grade 3</option>
+                <option value="Grade 4">Grade 4</option>
+                <option value="Grade 5">Grade 5</option>
+                <option value="Grade 6">Grade 6</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label class="inputLabel" for="college_gs_province">Province<span class="text-red"> *</span></label>
+              <select class="text-gray col-12 border bg-white border-dark c-p-5" name="college_gs_province" id="college_gs_province" >
+                <option selected disabled value="">Select province</option>
+              </select>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="college_gs_city">City<span class="text-red"> *</span></label>
+              <select class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="college_gs_city" id="college_gs_city" >
+                <option selected disabled value="">Select City</option>
+              </select>
+            </div>
+          </div>
+          <div class="py-2 add_school">
+            <div id="college_gs_add_button" class=" cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+          </div>
+        </div>
+      </form>
+
+      <form>
+        <div class="preSchool text12 form-group">
+          <h6 class="inputGroup my-4"> <b>Junior High School</b> </h6>
+          <div class="custom-table my-4">
+            <table>
+              <tr class="tr-custom">
+                <th class="table-school">School</th>
+                <th>Year Started</th>
+                <th>Year Ended</th>
+                <th>Grade Started</th>
+                <th>Grade Ended</th>
+                <th>Province</th>
+                <th>City</th>
+              </tr>
+              <tbody class="college_jhs_table">
+                
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label class="inputLabel" for="college_jhs_school_name">School Name<span class="text-red"> *</span></label>
+              <input class="college_jhs_school_name longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="college_jhs_school_name" name="college_jhs_school_name" placeholder="Enter School Name"> </input>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="college_jhs_year_start">Year Started<span class="text-red"> *</span></label>
+              <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="college_jhs_year_start" name="college_jhs_year_start" placeholder="Date"> </input>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="college_jhs_year_end">Year End<span class="text-red"> *</span></label>
+              <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="college_jhs_year_end" name="college_jhs_year_end" placeholder="date""> </input>
+            </div>
+            
+            <div class="col">
+              <label class="inputLabel" for="college_jhs_started">Grade Started<span class="text-red"> *</span></label>
+              <select id="college_jhs_started" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                <option value="select">Select Grade Started</option>
+                <option value="Grade 7">Grade 7</option>
+                <option value="Grade 8">Grade 8</option>
+                              <option value="Grade 9">Grade 9</option>
+                <option value="Grade 10">Grade 10</option>
+              </select>
+            </div>
+
+            <div class="col"> 
+              <label class="inputLabel" for="college_jhs_ended">Grade Ended<span class="text-red"> *</span></label>
+              <select id="college_jhs_ended" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                <option value="select">Select Grade Ended</option>
+                <option value="Grade 7">Grade 7</option>
+                <option value="Grade 8">Grade 8</option>
+                              <option value="Grade 9">Grade 9</option>
+                <option value="Grade 10">Grade 10</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label class="inputLabel" for="college_jhs_province">Province<span class="text-red"> *</span></label>
+              <select class="text-gray col-12 border bg-white border-dark c-p-5" name="college_jhs_province" id="college_jhs_province" >
+                <option selected disabled value="">Select province</option>
+              </select>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="college_jhs_city">City<span class="text-red"> *</span></label>
+              <select class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="college_jhs_city" id="college_jhs_city" >
+                <option selected disabled value="">Select City</option>
+              </select>
+            </div>
+          </div>
+          <div class="py-2 add_school">
+            <div id="college_jhs_add_button" class=" cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+          </div>
+        </div>
+      </form>
+
+      <form>
+        <div class="preSchool text12 form-group">
+          <h6 class="inputGroup my-4"> <b>Senior High School</b> </h6>
+          <div class="custom-table my-4">
+            <table>
+              <tr class="tr-custom">
+                <th class="table-school">School</th>
+                <th>Year Started</th>
+                <th>Year Ended</th>
+                <th>Grade Started</th>
+                <th>Grade Ended</th>
+                <th>Province</th>
+                <th>City</th>
+              </tr>
+              <tbody class="college_shs_table">
+                
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label class="inputLabel" for="college_shs_school_name">School Name<span class="text-red"> *</span></label>
+              <input class="college_shs_school_name longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="college_shs_school_name" name="college_shs_school_name" placeholder="Enter School Name"> </input>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="college_shs_year_start">Year Started<span class="text-red"> *</span></label>
+              <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="college_shs_year_start" name="college_shs_year_start" placeholder="Date"> </input>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="college_shs_year_end">Year End<span class="text-red"> *</span></label>
+              <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="college_shs_year_end" name="college_shs_year_end" placeholder="date""> </input>
+            </div>
+            
+            <div class="col">
+              <label class="inputLabel" for="college_shs_started">Grade Started<span class="text-red"> *</span></label>
+              <select id="college_shs_started" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                <option value="select">Select Grade Started</option>
+                <option value="Grade 11">Grade 11</option>
+                <option value="Grade 12">Grade 12</option>
+              </select>
+            </div>
+
+            <div class="col"> 
+              <label class="inputLabel" for="college_shs_ended">Grade Ended<span class="text-red"> *</span></label>
+              <select id="college_shs_ended" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                <option value="select">Select Grade Ended</option>
+                <option value="Grade 11">Grade 11</option>
+                <option value="Grade 12">Grade 12</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label class="inputLabel" for="college_shs_province">Province<span class="text-red"> *</span></label>
+              <select class="text-gray col-12 border bg-white border-dark c-p-5" name="college_shs_province" id="college_shs_province" >
+                <option selected disabled value="">Select province</option>
+              </select>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="college_shs_city">City<span class="text-red"> *</span></label>
+              <select class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="college_shs_city" id="college_shs_city" >
+                <option selected disabled value="">Select City</option>
+              </select>
+            </div>
+          </div>
+          <div class="py-2 add_school">
+            <div id="college_shs_add_button" class=" cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+          </div>
+        </div>
+      </form>
+     </div>
+
+     
+     <!-- End of college pre school -->
+
+     <!-- Start of college -->
+     <div class="graduate_school">
+       <form>
+        <div class="preSchool text12 form-group">
+          <h6 class="inputGroup my-4"> <b>College</b> </h6>
+          <div class="custom-table my-4">
+            <table>
+              <tr class="tr-custom">
+                <th class="table-school">School</th>
+                <th>Year Started</th>
+                <th>Year Ended</th>
+                <th>Grade Started</th>
+                <th>Grade Ended</th>
+                <th>Province</th>
+                <th>City</th>
+              </tr>
+              <tbody class="grad_college_table">
+                
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <label class="inputLabel" for="grad_college_school_name">School Name<span class="text-red"> *</span></label>
+              <input class="grad_college_school_name longInput form-control form-control-sm border bg-white rounded-0 border-dark"  type="text" id="grad_college_school_name" name="grad_college_school_name" placeholder="Enter School Name"> </input>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="grad_college_year_start">Year Started<span class="text-red"> *</span></label>
+              <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="grad_college_year_start" name="grad_college_year_start" placeholder="Date"> </input>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="grad_college_year_end">Year End<span class="text-red"> *</span></label>
+              <input max="2022-12-31" class="standardInput form-control form-control-sm border bg-white rounded-0 border-dark" type="date" id="grad_college_year_end" name="grad_college_year_end" placeholder="date""> </input>
+            </div>
+                    
+                    <div class="col">
+              <label class="inputLabel" for="college_jhs_gradeStarted">Grade Started<span class="text-red"> *</span></label>
+              <select id="college_jhs_gradeStarted" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                <option value="select">Select Grade Started</option>
+                <option value="First Year">First Year</option>
+                <option value="Second Year">Secnd Year</option>
+                              <option value="Third Year">Third Year</option>
+                <option value="Fourth Year">Fourth Year</option>
+                <option value="Fifth Year">Fifth Year</option>
+              </select>
+            </div>
+
+            <div class="col"> 
+              <label class="inputLabel" for="grad_college_gradeStarted">Grade Ended<span class="text-red"> *</span></label>
+              <select id="grad_collge_gradeEnded" class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="shs_ps_city">
+                <option value="select">Select Grade Ended</option>
+                <option value="First Year">First Year</option>
+                <option value="Second Year">Secnd Year</option>
+                              <option value="Third Year">Third Year</option>
+                <option value="Fourth Year">Fourth Year</option>
+                <option value="Fifth Year">Fifth Year</option>
+              </select>
+            </div>
+                    
+            <div class="col">
+              <label class="inputLabel" for="grad_college_province">Province<span class="text-red"> *</span></label>
+              <select class="text-gray col-12 border bg-white border-dark c-p-5" name="grad_college_province" id="grad_college_province" >
+                <option selected disabled value="">Select province</option>
+              </select>
+            </div>
+    
+            <div class="col">
+              <label class="inputLabel" for="grad_college_city">City<span class="text-red"> *</span></label>
+              <select class="standardSelector text-gray col-12 border bg-white border-dark c-p-5" name="grad_college_city" id="grad_college_city" >
+                <option selected disabled value="">Select City</option>
+              </select>
+            </div>
+          </div>
+          <div class="py-2 add_school">
+            <div id="grad_college_add_button" class=" cursor-pointer border rounded-0 py-1 px-3 border-dark">+ Add School</div>
+          </div>
+        </div>
+      </form>
+     </div>
+       <div class="text12">
+        <div class="d-flex justify-content-center">
+          <div class="back_to_personal_info back cursor-pointer border boder-0 mx-2 py-1 px-3">Back</div>
+          <div class="continue continue_to_confirmation cursor-pointer border btn-primary boder-0 mr-2 py-1 px-3">Continue</div>
+        </div>
+      </div>
+       <div class="text12">
+        <div class="footer mt-5">
+          <hr>
+          <p class="p-5">© Philippine College of Criminology</p>
+        </div>
+      </d>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <script type="text/javascript">
+      
+    </script>
+  </body>
+</html>

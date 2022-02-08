@@ -1,0 +1,685 @@
+/*Global Style ----------------------------------------------------------------------------------------------*/
+.regot-loader {
+  font-size: 20px;
+  position: relative;
+  width: 4em;
+  margin: 125px auto;
+}
+.file {
+  visibility: hidden;
+  position: absolute;
+}
+input, select, tbody, th{
+    font-size: 13px !important;
+    border-radius: 0 !important;
+}
+.was-validated-custom{
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url('https://eas.test.pccr.edu.ph/files/warning.png') !important;
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+.was-validated-custom2{
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Sun_white_icon.svg/1200px-Sun_white_icon.svg.png') !important;
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+span{
+    margin-bottom: 0 !important;
+}
+.back{
+    width: 84px !important;
+}
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+
+  background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 150ms infinite linear;
+  -moz-animation: spinner 150ms infinite linear;
+  -ms-animation: spinner 150ms infinite linear;
+  -o-animation: spinner 150ms infinite linear;
+  animation: spinner 150ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+select:focus,
+select:active,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+label{
+    font-size: 13px !important;
+}
+.form-select {
+   
+    border-radius: 0rem; 
+ 
+}
+.form-control {
+    color: #4C5A67 !important;
+    background-color: #fcfdff !important;
+    background-clip: padding-box !important; 
+    border: -31rem solid #c9c9c9 !important;
+    font-size: 13px;
+    border-radius: 0.375 rem !important;
+}
+.border-dark{
+    font-size: 13px;
+}
+.leadcontainer{
+    width: 50% !important;
+    margin: 0px auto;
+   
+    margin-top: 100px !important;
+}
+.border-primary2{
+     border: 1px solid #7A0200 !important;
+}
+.regot {
+  width: 1em;
+  height: 1em;
+  border-radius: 0.5em;
+  background: #FFA300;
+  position: absolute;
+  animation-duration:.7s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+.regot1 { left: 0; }
+.regot2 { left: 1.25em; }
+.regot3 { left: 2.5em; }
+.regot4 { left: 3.75em; }
+
+@keyframes tap {
+  to { 
+    transform: translateY(.7em) scale(0.9);
+    background: #ffc834;
+  }
+}
+
+
+.regot1 {
+  animation-name: tap;
+  animation-direction:alternate;
+}
+.regot2 {
+  animation-name: tap;
+  animation-direction:alternate;
+  animation-delay:.1s;
+}
+.regot3 {
+  animation-name: tap;
+  animation-direction:alternate;
+  animation-delay:.2s;
+}
+.regot4 {
+  animation-name: tap;
+  animation-direction:alternate;
+  animation-delay:.3s;
+}
+.navbar-brand img.pccr-logo {
+    display: inline-block;
+    max-width: 150px !important;
+    max-height: 60px !important;
+}
+.avatar .standard-image{
+    display: none !important;
+}
+.cursor-pointer{
+    cursor: pointer !important;
+}
+.para_holder{
+    max-width: 80% !important;
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 0 auto !important;
+}
+.tab_1{
+    margin-left: 17px !important;
+}
+.tab_2{
+    margin-left: 20px !important;
+}
+.web-footer, .navbar-toggler{
+    display: none !important;
+}
+.btn-login-area{
+    display: none;
+}
+.add_school{
+    width:120px !important;
+}
+.navbar-light{
+    padding: 2px !important;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+.datepicker{
+    display: none !important;
+}
+
+.tr-custom{
+    background: #F6F6F6 !important;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 4px 4px 0px 0px !important;
+}
+.btn-primary{
+    background-color: #7A0200 !important;
+}
+.text-primary-pccr{
+    color: #7A0200 !important;
+}
+.text12{
+    font-size:12px !important;
+}
+label{
+    margin-bottom: 0px !important;
+    padding: 0px !important;
+}
+.text-10{
+    font-size: 10px !important;
+}
+.c-p-5{
+    padding: 5px !important;
+}
+.text-gray{
+    color: gray !important;
+    padding: 5px !important;
+}
+.head-sm{
+    font-size: 15px !important;
+}
+.text-red{
+    color:red !important;
+}
+.footer{
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+}
+.tab-line{
+    border-bottom: 2px solid black !important;
+    margin: 0 10px 0 0 !important;
+    cursor: not-allowed;
+}
+.tab-line-active{
+     border-bottom: 2px solid #FDB415 !important;
+     cursor: pointer;
+     margin: 0 10px 0 0 !important;
+}
+.tab-line-done{
+    border-bottom: 2px solid #7A0200  !important;
+    cursor: pointer;
+    margin: 0 10px 0 0 !important;
+}
+.cursor-pointer{
+    cursor: pointer !important;
+}
+.cursor-not-allowed{
+    cursor: not-allowed;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2px;
+    filter: invert(6%) sepia(94%) saturate(5610%) hue-rotate(19deg) brightness(104%) contrast(112%);
+}
+option{
+    font-size: 12px;
+}
+.table.table-bordered.table-striped td, .table.table-bordered.table-striped th{
+     border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+}
+.table.table-bordered.table-striped th{
+     border: 1px solid #dddddd;
+     background-color: #dddddd;
+     text-align: left;
+     padding: 8px;
+}
+.th-code{
+    width: 30%;
+}
+.width-35{
+    width: 35% !important;
+}
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+.custom-table{
+    overflow-y: auto !important;
+}
+
+/*LeAD aPP,-------------------------------------------------------------------------------------------*/
+.wrapper{
+    height: 100vh !important;
+}
+.pccr-logo-box{
+    margin: auto;
+}
+.content-wrapper {
+    width: 60% !important;
+    margin: 50px auto !important;
+    padding: 50px;
+}
+.custom-border{
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+/*Close Lead App ----------------------------------------------------------------------------------------*/
+.sm-button.d-flex{
+    display: none !important;
+}
+.lg-button.d-flex{
+    display: flex !important;
+    margin-top: 30px !important;
+}
+/*Close lead App---------------------------------------------------------------------------------------*/
+
+/*Personal info ---------------------------------------------------------------------------------------*/
+#continue_school_background, #back_to_admission{
+    width: 92px;
+}
+/*Close Personal Information ---------------------------------------------------------------------------*/
+
+/*Admission confirmation Style ------------------------------------------------------------------------*/
+.circle {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%; /* the magic */
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 auto 40px;
+}
+.confirmation td, .confirmation th {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #dddddd !important;
+}
+.check_holder_primary{
+    background-color: #7A0200 !important;
+}
+.check_holder_success{
+    background-color: #007A31 !important;
+}
+.check_holder_rejected{
+    background-color: red !important;
+}
+#subject_code, #title{
+    width: 50%;
+}
+.table-school{
+    width: 40% !important;
+}
+
+
+/* Admission Requirements ----------------------------------------------------------------------*/
+.admission-table{
+    max-height: 100px;
+}
+.attached-file{
+    display: flex !important;
+    height: 40px;
+}
+[data-fieldtype="Attach"]{
+    display: block !important;
+}
+.btn.btn-default.btn-sm.btn-attach {
+    position: absolute;
+    right: 0%;
+    margin-top: -34px;
+    background-color: #7A0200 !important;
+    color: white !important;
+    border-radius: 0px;
+    padding: 5px 15px;
+}
+[data-action="reload_attachment"]{
+    display: none !important;
+}
+.container.my-4 .btn.btn-primary.btn-sm.ml-2, .web-footer,.section-head,
+[data-fieldname="name1"], [data-fieldname="ref_number"], [data-fieldname="academic_department"], [data-fieldname="agreement_status_data"],
+[data-fieldname="terms_and_conditions"], [data-fieldname="amended_from"]{
+    display: none !important;
+}
+.d-flex.justify-content-between.align-items-center, .page-breadcrumbs{
+    display: none !important;
+}
+.checkbox .label-area {
+    padding-left: 3px;
+    font-size: 12px;
+}
+[data-fieldtype="Check"]{
+    text-align: end;
+}
+.notes{
+    font-size: 11px !important;
+    color: #6C757D !important;
+    margin-top: -40px;
+}
+.req-head{
+    margin-bottom: 50px !important;
+}
+.web-form-wrapper .form-column:first-child {
+    padding-left: 0;
+    padding-right: 0;
+}
+[data-action="clear_attachment"]{
+    position: inherit;
+    margin-top: 0px;
+    margin-left: -128px;
+    padding: 2px 10px;
+    background-color: white !important;
+    color: black;
+}
+
+/* Class enlistment --------------------------------------------------------------------------------*/
+.custom-md-3{
+    margin-left: 37px !important;
+}
+
+
+/* Billing Statements ------------------------------------------------------------------------------*/
+.billing_icon{
+    width: 32px !important;
+}
+.billing_icon_gcash{
+    width: 52px !important;
+}
+.text-right{
+    text-align: right !important;
+}
+.text-black{
+    color: black !important;
+}
+.text-red{
+    color: red !important;
+}
+.secondary-button{
+    background: #FDB415 !important;
+    border-radius: 4px !important;
+}
+.disabled-button{
+    background: #C0C0C0 !important;
+    color: white !important;
+    border-radius: 4px !important;
+}
+.w-40{
+    width: 40% !important;
+    margin-right: 10px !important;
+}
+.font-weight-bold{
+    font-weight: 500 !important;
+}
+hr:not([size]){
+    margin: 0 !important;
+}.form-control {
+    -webkit-appearance: auto !important;
+    -moz-appearance: auto !important;
+    appearance: auto !important;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.custom-border-primary{
+    border: 1px solid #7A0200 !important;
+    box-sizing: border-box !important;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 4px !important;
+}
+hr:not([size]).bold-line {
+    height: 3px !important;
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+    background-color: black !important;
+    opacity: 1 !important;
+}
+.table-head{
+    background-color: rgb(189, 189, 189) !important;
+    width: 95% !important;
+    margin: 0 auto !important;
+}
+.Scholarship-table{
+    background-color: rgb(189, 189, 189) !important;
+}
+.table-body, .table-total{
+    width: 95% !important;
+    margin: 0 auto !important;
+}
+.w-description{
+    width: 67% !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.card_logo{
+    width: 100px !important;
+    margin-left: 75px !important;
+}
+.selected_payment{
+    background-color: #7A0200 !important;
+    color: white !important;
+}
+.unselected_payment{
+    background-color: white !important;
+    color: black !important;
+}
+[type="radio"]{
+    margin-left: 10px !important;
+}
+.content_margin_top{
+    margin-top: 100px !important;
+}
+input[type='radio']:after {
+    border: 1px solid rgb(44, 43, 43);
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #ffffff;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+/*mobile-----------------------------------------------------*/
+@media only screen and (max-width: 400px) {
+    .form-column.col-sm-6{
+        padding: 0px !important;
+    }
+    .label{
+        display: none !important;
+    }
+    .tab_label{
+        display: none !important;
+    }
+
+    /*step1leaduser*/
+    .content-wrapper {
+        width: 100% !important;
+        margin: 0px auto !important;
+        padding: 50px 0;
+    }
+    .custom-border{
+        border: none !important;
+    }
+    .sm-button.d-flex{
+        display: flex !important;
+        margin-top: 30px !important;
+    }
+    .lg-button.d-flex{
+        display: none !important;
+    }
+    .th-code{
+        width: 50%;
+    }
+    .container{
+        width: 97% !important;
+        margin-left: 0px !important;
+    }
+    .leadcontainer{
+    width: 90% !important;
+    margin: 0px auto;
+   
+    margin-top: 50px !important;
+}
+}
+
