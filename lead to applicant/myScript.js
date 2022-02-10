@@ -1,6 +1,7 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
   'use strict'
+   $(".navbar-brand").css("pointer-events", "none");
     function toTitleCase(str) {
     return str.split(/\s+/).map(s => s.charAt(0).toUpperCase() + s.substring(1).toLowerCase()).join(" ");
   }
@@ -8,6 +9,34 @@
     var $t = $(this);
     $t.val(toTitleCase($t.val()));
   });
+
+  $("#mobile_number, #guardian_number").keypress(function(e){
+    var keyCode = e.which;
+    if ( (keyCode != 8 || keyCode ==32 ) && (keyCode < 48 || keyCode > 57)) { 
+      return false;
+    }
+  });
+ 
+  $("#home_phone").keypress(function(e){
+    var keyCode = e.which; 
+    if ( !( (keyCode >= 48 && keyCode <= 57) 
+      ||(keyCode >= 65 && keyCode <= 90) 
+      || (keyCode >= 97 && keyCode <= 122) ) 
+      && keyCode != 40) {
+      e.preventDefault();
+    }
+  });
+
+  $('#mobile_number, #guardian_number, #home_phone').bind('input', function () {
+    setTimeout(function () { 
+        let number = $('#mobile_number').val().replace("-", "");
+        $('#mobile_number').val(number)
+        let number2 = $('#guardian_number').val().replace("-", "");
+        $('#guardian_number').val(number2)
+        let number3 = $('#home_phone').val().replace("-", "");
+        $('#home_phone').val(number3)
+    }, 0);
+})
   // //jQuery option 1
   // $('#fieldToRemove').prop('required',false);
 

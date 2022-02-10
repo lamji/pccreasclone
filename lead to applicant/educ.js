@@ -1,7 +1,5 @@
  $(".navbar-brand").css("pointer-events", "none");
     const url_base = window.location.origin
-    var pre_school_res = false
-    var grade_school_res = false
     var refEncoded = sessionStorage.ref_number
     var refDecoded = atob(refEncoded).split("=").pop()
     fetch(url_base + '/api/method/login', {
@@ -11,22 +9,16 @@
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        // usr: 'Administrator',
-        // pwd: 'admin'
         usr: 'lead_user@gmail.com',
         pwd: 'Gues_101'
       })
     })
     .then(r => r.json())
     .then(r => {
-      var refEncoded = sessionStorage.ref_number
-      var refDecoded = atob(refEncoded).split("=").pop()
       fetch('/api/resource/Admission PCCR/' + refDecoded)
       .then(res => res.json())
       .then(res => {
-        console.log(res)
         var acd = res.data.academic_department + "-" + res.data.student_type
-        console.log(acd)
         var global_arr = []
         var pre_school_array = []
         var Gs_pre_school_array = []
@@ -34,36 +26,6 @@
         var college_shs_array  = []
         var grad_college_array = []
         var grad_college_array_2 = []
-        let pre_schooldata = async()=>{
-        let imageres = fetch('/api/resource/Admission PCCR/' + refDecoded, {
-          headers:{
-            'X-Frappe-CSRF-Token': frappe.csrf_token
-          },
-          method: "PUT",
-          body: JSON.stringify({
-            education: global_arr
-          })
-        })
-        .then(res => res.json())
-        .then(res => {
-            console.log(res)
-             swal("Success!", "", "success");
-            let response_educ = res.data.education
-
-            response_educ.forEach(el => {
-              if(el.academic == "Pre School"){
-                 pre_school_res = true
-              }
-              if(el.academic == "Grade School"){
-                grade_school_res = true
-              }
-            })
-           
-          })
-        .catch((error) => {
-          console.log(error)
-        })
-      }
         $('.loading').hide()
         //table function loop
         var education_list = res.data.education
@@ -170,44 +132,45 @@
             `
             $('.grad_college_table_2').append(table)
           }
-          console.log(global_arr)
         })
+        // function add button
+        let add_button = async()=>{
+          let imageres = fetch('/api/resource/Admission PCCR/' + refDecoded, {
+            headers:{
+              'X-Frappe-CSRF-Token': frappe.csrf_token
+            },
+            method: "PUT",
+            body: JSON.stringify({
+              education: global_arr
+            })
+          })
+          .then(res => res.json())
+          .then(res => {
+            swal("Added!", "", "success");
+            })
+          .catch((error) => {
+            console.log(error)
+          })
+        }
       // close the modal
       $('.close, .close-btn').click( () => {
         $('#error').modal('hide')
         $('.error_message').html("")
+        $('.continue_to_confirmation').html("Continue")
       })
       //change input
-      function resize() {
-        if(window.innerWidth <= 500){
-          $('div.col').removeClass('col').addClass("col-6")
-          $('div.col-md-2, div.col-md-4').removeClass('col-md-2 col-md-4').addClass("col-12")
-        }else{
-          $('div.col').removeClass('col-6').addClass("col")
-        }
-      }
+      
       //watch input and select
       $('input, Select').click( () => {
         $('.continue_to_confirmation').html("Continue")
       })
-      // class sessionStorage
-      class Session extends Map {
-        set(id, value) {
-          if (typeof value === 'object') value = JSON.stringify(value);
-          sessionStorage.setItem(id, value);
-        }
-
-        get(id) {
-          const value = sessionStorage.getItem(id);
-          try {
-            return JSON.parse(value);
-          } catch (e) {
-            return value;
-          }
-        }
+      var mq = window.matchMedia( "(max-width: 570px)" );
+      if (mq.matches) {
+        $('.m-querry').removeClass('col').addClass("col-6")
       }
-
-      window.onresize = resize;
+      else {
+        $('div.col').removeClass('col-6').addClass("col")
+      }
       // Api Location
       fetch('https://api.psgc.abakadastudios.com/api/provinces?per_page=all')
       .then(response => response.json())
@@ -557,7 +520,7 @@
               </tr>
             `
             $('.hs_table_body_1').append(hs_table)
-            pre_schooldata()
+            add_button()
           }else{
             $('.error_message').html("Year Started must be less than Year Ended.")
             $('#error').modal('show')
@@ -630,7 +593,7 @@
                   </tr>
               `
               $('.hs_table_body_2').append(gs_table)
-              pre_schooldata()
+              add_button()
             }else{
               $('.error_message').html("Year Started must be less than Year Ended.")
               $('#error').modal('show')
@@ -705,7 +668,7 @@
                     </tr>
                 `
                 $('.shs_jhs_table').append(shs_jhs_table)
-                
+                add_button()
               }else{
               $('.error_message').html("Year Started must be less than Year Ended.")
               $('#error').modal('show')
@@ -783,6 +746,7 @@
                     </tr>
                 `
                 $('.college_shs_table').append(college_shs_table)
+                add_button()
              }else{
               $('.error_message').html("Year Started must be less than Year Ended.")
               $('#error').modal('show')
@@ -876,7 +840,7 @@
                   </tr>
                 `
                 $('.grad_college_table').append(grad_college_table)
-               console.log(grad_college_array)
+                add_button()
               }
           }else{
             $('.error_message').html("Year Started must be less than Year Ended.")
@@ -966,7 +930,7 @@
                   </tr>
                 `
                 $('.grad_college_table_2').append(grad_college_table)
-               console.log(grad_college_array)
+                add_button()
               }
           }else{
             $('.error_message').html("Year Started must be less than Year Ended.")
@@ -978,15 +942,44 @@
         form.classList.add('was-validated')
       }, false)
     })
+    //browser back
+    //back button
     $('.back_to_personal_info').click( () => {
-         window.location.href = "/personal-information"
+      if(global_arr.length > 0){
+        $('.continue_to_confirmation').html("Saving . . .")
+        let uploadData_back = async()=>{
+          let imageres = fetch('/api/resource/Admission PCCR/' + refDecoded, {
+            headers:{
+              'X-Frappe-CSRF-Token': frappe.csrf_token
+            },
+            method: "PUT",
+            body: JSON.stringify({
+              education: global_arr
+            })
+          })
+          .then(res => res.json())
+          .then(res => {
+            setTimeout(() => {
+              window.location.href = "/personal-information"
+            }, 1000);
+               
+            })
+          .catch((error) => {
+            console.log(error)
+          })
+        }
+        uploadData_back()
+      }else{
+        window.location.href = "/personal-information"
+      }
+
+       
     })
+    //continue button
     $('.continue_to_confirmation').click( () => {
-      var raw = global_arr
+      if(global_arr.length > 0){}
       $('.continue_to_confirmation').html("Updating Records . . .")
       let uploadImage = async()=>{
-        var refEncoded = sessionStorage.ref_number
-        var refDecoded = atob(refEncoded).split("=").pop()
         let imageres = fetch('/api/resource/Admission PCCR/' + refDecoded, {
           headers:{
             'X-Frappe-CSRF-Token': frappe.csrf_token
@@ -998,46 +991,149 @@
         })
         .then(res => res.json())
         .then(res => {
-            console.log(res)
-            $('.continue_to_confirmation').html("Success")
-            swal("Success!", "", "success");
-            // window.location.href = "/confirmation-lead"
+          swal("Success!", "", "success");
+          setTimeout(() => {
+            window.location.href = "/confirmation-lead"
+          }, 1000);
           })
         .catch((error) => {
           console.log(error)
         })
       }
-      // var pre_school_array = []
-      // var Gs_pre_school_array = []
-      // var shs_jhs_array = []
-      // var college_shs_array  = []
-      // var grad_college_array = []
-      if(education_list.length > 0){
-        
-        if(acd == "D05-Freshman"){
-            education_list.forEach( element => {
-              if(element.academic == "Pre School"){
-                pre_school_res = true
-              }
-              if(element.academic == "Grade School"){
-                grade_school_res = true
-              }
-            })
-            console.log(pre_school_res, grade_school_res)
-            if(pre_school_res && grade_school_res){
-              swal("Success!", "", "success");
-
-            }else{
-              if(!pre_school_res){
-                $('.error_message').append("<p>Pre school must not be empty.</p>")
-              }
-              if(!grade_school_res){
-                $('.error_message').append("<p>Pre school must not be empty.</p>")
-              }
-              $('#error').modal("show")
-            }
+      var raw = global_arr
+      if(global_arr.length > 0){
+        var pre_school_res = false
+        var grade_school_res = false
+        var junior_high_school_res = false
+        var senior_high_school_res = false
+        var college_res = false
+        var grad_school_res = false
+        global_arr.forEach( element => {
+          if(element.academic == "Pre School"){
+            pre_school_res = true
           }
+          if(element.academic == "Grade School"){
+            grade_school_res = true
+          }
+          if(element.academic == "Junior High School"){
+            junior_high_school_res = true
+          }
+          if(element.academic == "Senior High School"){
+            senior_high_school_res = true
+          }
+          if(element.academic == "College"){
+            college_res = true
+          }
+          if(element.academic == "Graduate School"){
+            grad_school_res = true
+          }
+        })
+        //junior High School d05 done
+        if(acd == "D05-Freshman"){
+          if( pre_school_res && grade_school_res){
+            uploadImage()
+          }else{
+            $('.continue_to_confirmation').html("Error")
+            if(!pre_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Pre school must not be empty.</p>")
+            }
+            if(!grade_school_res){
+              $('.error_message').append("<p class='text-left mb-0 text12'>Grade school must not be empty.</p>")
+            }
+            $('#error').modal("show")
+          }
+        }
+        //Senior High School
+        if(acd == "D06-Freshman" || acd == "D05-Transferee"){
+          if( pre_school_res && grade_school_res && junior_high_school_res){
+            uploadImage()
+          }else{
+            $('.continue_to_confirmation').html("Error")
+            if(!pre_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Pre school must not be empty.</p>")
+            }
+            if(!grade_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Grade school must not be empty.</p>")
+            }
+            if(!junior_high_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Junior school must not be empty.</p>")
+            }
+            $('#error').modal("show")
+          }
+        }
+        if(acd == "D06-Transferee" || acd == "D07-Freshman"){
+          if( pre_school_res && grade_school_res && junior_high_school_res && senior_high_school_res){
+            uploadImage()
+          }else{
+            $('.continue_to_confirmation').html("Error")
+            if(!pre_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Pre school must not be empty.</p>")
+            }
+            if(!grade_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Grade school must not be empty.</p>")
+            }
+            if(!junior_high_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Junior school must not be empty.</p>")
+            }
+            if(!senior_high_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Senior school must not be empty.</p>")
+            }
+            $('#error').modal("show")
+          }
+        }
+        //college
+        if(acd == "D08-Freshman" || acd == "D07-Transferee" || acd == "D07-Second Courser"){
+          if( pre_school_res && grade_school_res && junior_high_school_res && senior_high_school_res && college_res){
+            uploadImage()
+          }else{
+            $('.continue_to_confirmation').html("Error")
+            if(!pre_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Pre school must not be empty.</p>")
+            }
+            if(!grade_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Grade school must not be empty.</p>")
+            }
+            if(!junior_high_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Junior school must not be empty.</p>")
+            }
+            if(!senior_high_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Senior school must not be empty.</p>")
+            }
+            if(!college_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>College school must not be empty.</p>")
+            }
+            $('#error').modal("show")
+          }
+        }
+        //Grad school
+        if(acd == "D08-Transferee" || acd == "D08-Second Courser"){
+          if( pre_school_res && grade_school_res && junior_high_school_res && senior_high_school_res && college_res && grad_school_res){
+            uploadImage()
+          }else{
+            $('.continue_to_confirmation').html("Error")
+            if(!pre_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Pre school must not be empty.</p>")
+            }
+            if(!grade_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Grade school must not be empty.</p>")
+            }
+            if(!junior_high_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Junior school must not be empty.</p>")
+            }
+            if(!senior_high_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Senior school must not be empty.</p>")
+            }
+            if(!college_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>College school must not be empty.</p>")
+            }
+            if(!grad_school_res){
+              $('.error_message').append("<p class='text-left text12 mb-0'>Graduate school must not be empty.</p>")
+            }
+            $('#error').modal("show")
+          }
+        }
       }else{
+        //DO5
         if(acd == "D05-Freshman"){
           if(pre_school_array.length == 0 || Gs_pre_school_array.length == 0){
             if(pre_school_array.length == 0){
@@ -1067,6 +1163,7 @@
             uploadImage()
           }
         }
+        //DO06
         if(acd == "D06-Freshman"){
           if(pre_school_array.length == 0 || Gs_pre_school_array.length == 0 || shs_jhs_array.length == 0){
             if(pre_school_array.length == 0){
@@ -1102,6 +1199,7 @@
             uploadImage()
           }
         }
+        //D07
         if(acd == "D07-Freshman"){
           if(pre_school_array.length == 0 || Gs_pre_school_array.length == 0 || shs_jhs_array.length == 0 || college_shs_array.length == 0){
             if(pre_school_array.length == 0){
@@ -1165,6 +1263,7 @@
             uploadImage()
           }
         }
+          // D08
          if(acd == "D08-Freshman"){
           if(pre_school_array.length == 0 || grad_college_array.length == 0 || Gs_pre_school_array.length == 0 || shs_jhs_array.length == 0 || college_shs_array.length == 0){
             if(pre_school_array.length == 0){
